@@ -48,4 +48,5 @@ const addToCart = async (pid, cantidad) => {
     console.log(response)
 }
 
+
 export {getProducts, getProductDetailById, addToCart}

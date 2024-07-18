@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { login } from '../../fetching/auth.fetching'
 import { Link, useNavigate } from 'react-router-dom'
-
+import "./Login.css"
 
 const LoginScreen = () => {
     const [errorText, setErrorText] = useState('')
@@ -24,13 +24,16 @@ const LoginScreen = () => {
         }
     }
   return (
-    <div>
-        <form onSubmit={handleSubmit}>
-            <div>
+    <div className='contenedorlogin'>
+        <div className='loginh1' >
+            <h1 >Iniciar sesión</h1> 
+        </div> 
+        <form className='formlogin' onSubmit={handleSubmit}>
+            <div className='div1login'>
                 <label htmlFor="email">Ingrese su email:</label>
                 <input placeholder='joeDoe@gmail.com' id='email' name='email'/>
             </div>
-            <div>
+            <div className='div2login'>
                 <label htmlFor="password">Ingrese su contraseña:</label>
                 <input type="text" placeholder='******' id='password' name='password' />
             </div>
@@ -40,7 +43,7 @@ const LoginScreen = () => {
                 <span style={{color: 'red'}}>{errorText}</span>
             }
             <span>Si aun no estas registrado, <Link to={'/register'}>registrate</Link></span>
-            <button type='submit'>Iniciar sesion</button>
+            <button className='buttonlogin' type='submit'>Iniciar sesion</button>
         </form>
     </div>
   )

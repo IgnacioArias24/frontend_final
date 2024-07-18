@@ -1,0 +1,53 @@
+body{
+    background-image: url('https://img.freepik.com/foto-gratis/tabla-refrigerios-papas-fritas-galletas-saladas-pasteles_114579-12255.jpg?t=st=1721241656~exp=1721245256~hmac=ac3198bbcca95d0bae91f30409e270199c6c13a8591d6e961a0ab0280cd3eb75&w=740');
+    background-size:  cover;
+}
+.cerrarsesion{
+    display: flex;
+    justify-content: end;
+}
+.tit{
+    color: beige;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 0;
+}
+.titulo{
+    margin-top: 8px;
+    color: beige;
+    font-size: 70px;
+    text-align: center;
+
+}
+
+.contenedorhome{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center; 
+    margin: 150px;
+}
+.divproduct{
+    display: flex;
+    background-color: #c97b26;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    border: 2px solid #ccc;
+    padding: 16px;
+    width: 200px; 
+    box-sizing: border-box; 
+}
+
+.pproduct{
+    font-size: 18px;
+}
+
+button{
+    margin-top: auto; 
+    padding: 10px 20px;
+    background-color: gray;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+}

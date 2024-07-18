@@ -1,4 +1,4 @@
-import { HTTP, URL } from "./http"
+import { HTTP, URL} from "./http"
 
 
 const ROUTE = '/api/auth'
@@ -8,16 +8,14 @@ export const login = async (usuario) => {
         const result = await HTTP.POST(URL.URL_API + ROUTE + '/login' , usuario)
 
         if(!result.ok){
-            throw result /* El formato {status: 400, message: 'inexistent email'} */
+            throw result 
         }
         else{
-            //Guardo el token en localstorage 
             localStorage.setItem('token', result.token)
         }
         
     }
     catch(error){
-        /* console.error('Error en logueo', error) */
         throw {message: error.message}
     }
 }

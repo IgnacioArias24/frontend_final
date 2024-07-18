@@ -47,5 +47,5 @@ export const HTTP = {
 }
 
 export const URL = {
-    URL_API: "https://backend-final-blush.vercel.app"
+    URL_API: 'https://backend-final-blush.vercel.app',
 }

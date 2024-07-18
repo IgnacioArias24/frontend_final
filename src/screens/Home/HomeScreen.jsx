@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { getProducts } from '../../fetching/products.fetching'
+import { Link } from 'react-router-dom'
+import BuyButton from '../../components/BuyButton'
+
+import "./HomeScreen.css"
 
 
 const HomeScreen = () => {
@@ -16,24 +20,26 @@ const HomeScreen = () => {
         console.error("algo ocurrio mal")
       })
     },
-  []
-)
-  
+    []
+  );
   return (
     <div>
-        <h1>Bienvenido!</h1>
+        <header>
+        <h2 className='tit'>Encuentra todo lo necesario para tu cocina</h2>
+        <h1 className='titulo'>Bienvenido!</h1>
+        </header>
         {
           loading ? 
           <h2>Cargando productos</h2>
           :
-          <div>
+          <div className='contenedorhome'>
               {products.map(product=>{
                 return(
-                  <div key={product._id}>
-                    <h2>{product.titulo}</h2>
-                    <p>{product.descripcion}</p>
-                    <span>{product.precio}</span>
-                    <Link to={'/detail/' + product._id}> Ver detalle </Link>
+                  <div className='divproduct' key={product._id}>
+                    <h2 className='h2product'>{product.titulo}</h2>
+                    <p className='pproduct'>{product.descripcion}</p>
+                    <span className='spanproduct'>{product.precio} $</span> <br /><br />
+                    <BuyButton stock={product.stock} />
                   </div>
                 )
               })}
@@ -44,4 +50,6 @@ const HomeScreen = () => {
   )
 }
 
+
+      
 export default HomeScreen
