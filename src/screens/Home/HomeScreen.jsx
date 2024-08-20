@@ -10,20 +10,25 @@ const HomeScreen = () => {
   const [products, setProducts ] =useState ([])
   const [loading, setLoading] = useState(true)
   const eliminarProducto = async (product) =>{
+    if(!product) {
+      console.error("Producto no encontrado")
+      return
+    }
     const confirmacion = window.confirm('¿Desea eliminar el producto?')
     
     if (confirmacion) {
       try{
         await deleteProduct(product)
 
-        const updatedProducts = products.filter(p => p.id !== product)
+        const updatedProducts = products.filter(p => p._id !== product._id)
         setProducts(updatedProducts)
-        window.confirm("Producto eliminado")
+        window.alert("Producto eliminado")
       } catch (error) {
-        window.confirm("Error al eliminar producto")
+        console.log(error.message)
+        window.alert("Error al eliminar producto")
       }
     }
-  }
+  };
 
 
 
@@ -58,7 +63,7 @@ const HomeScreen = () => {
                     <p className='pproduct'>{product.descripcion}</p>
                     <span className='spanproduct'>{product.precio} $</span> <br /><br />
                     <BuyButton stock={product.stock} />
-                    <button className='boton-eliminar' onClick={eliminarProducto(product)}>Eliminar</button>
+                    <button className='boton-eliminar' onClick={() => eliminarProducto(product)}>Eliminar</button>
                   </div>
                 )
               })}
