@@ -41,11 +41,27 @@ export const HTTP = {
             throw error; 
           }
     },
-    DELETE:() =>{
+    DELETE: async (url, headers) =>{
+      try {
+        const response = await fetch(url,{
+          method: 'DELETE',
+          headers: headers || {
+            'Authorization': localStorage.getItem("token")
+          },
+          })
 
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`)
+          }
+
+          return response.json();
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            throw error;
+          }
     }
 }
 
 export const URL = {
-    URL_API: 'https://backend-final-blush.vercel.app',
+  URL_API: 'https://backend-final-blush.vercel.app',
 }

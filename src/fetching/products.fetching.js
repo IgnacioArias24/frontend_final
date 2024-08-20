@@ -29,7 +29,25 @@ const getProductDetailById = async (pid) => {
 }
 
 
+const modificarProducto = async (id, producto) =>{
+    try {
+        const result = await fetch(URL.URL_API + PRODUCTS_ROUTE + '/' + id, producto)
+        return result
+    } catch (error) {
+        console.error('Error al modificar el producto: ', error.message)
+        throw { message: error.message}
+    }
+}
 
+const deleteProduct = async (id) =>{
+    try {
+        const result = await fetch(URL.URL_API + PRODUCTS_ROUTE + '/' + id)
+        return result
+    } catch (error) { 
+        console.error('Error al eliminar el producto:', error.message)
+        throw { message: error.message}
+    }
+}
 
 
 const addToCart = async (pid, cantidad) => {
@@ -49,4 +67,4 @@ const addToCart = async (pid, cantidad) => {
 }
 
 
-export {getProducts, getProductDetailById, addToCart}
+export {getProducts, getProductDetailById, addToCart, deleteProduct, modificarProducto}
